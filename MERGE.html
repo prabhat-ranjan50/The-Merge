@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Online Letter merger
+		</title>
+		<link rel="stylesheet" type="text/css" href="css/styling.css">
+		<script>
+			sessionStorage.setItem('First name','');
+			sessionStorage.setItem('Last name','');
+			sessionStorage.setItem('Company','');
+			sessionStorage.setItem('Address line 1','');
+			sessionStorage.setItem('Address line 2','');
+			sessionStorage.setItem('City','');
+			sessionStorage.setItem('Content','This letter is in regard with the upcoming holiday this week.Employees are not required to avail themselves in the office. All the pending work should be completed prior to the holiday. Employees are not expected to extend the deadlines because of the holiday.Have a wonderful holiday.');
+			//console.log(sessionStorage.getItem('Content'));
+			sessionStorage.setItem('Content2','');
+			sessionStorage.setItem('Content3','');
+			sessionStorage.setItem('Sname','');
+			sessionStorage.setItem('Dline1','');
+			sessionStorage.setItem('Dline2','');
+			sessionStorage.setItem('Salutation','');
+			sessionStorage.setItem('Close','');
+			function New() 
+			{
+ 				var letter=document.getElementById('letter');
+ 				letter.innerHTML = '<h1>New recepient</h1><br>First name: <input type="text" id="first_name" placeholder="First Name" size="50vw"><br><br>Last name: <input type="text" id="last_name" placeholder="Last Name" size="50vw"><br><br>Company: <input type="text" id="company" placeholder="Company" size="50vw"><br><br>Address line 1 : <input type="text" id="address_line_1" placeholder="First Line of Address" size="50vw"><br><br>Address line 2: <input type="text" id="address_line_2" placeholder="Second Line of Address" size="50vw"><br><br>City: <input type="text" id="city" placeholder="City" size="50vw"><br><h2>New recepient: <input type="button" value="new" class="new" onclick="getValues()"></h2>';
+			}
+			function getValues()
+			{
+
+ 				var temp=document.getElementById("first_name").value;
+ 				sessionStorage.setItem('First name',temp);
+ 				temp=document.getElementById("last_name").value;
+ 				sessionStorage.setItem('Last name',temp);
+ 				temp=document.getElementById("company").value;
+ 				sessionStorage.setItem('Company',temp);
+ 				temp=document.getElementById("address_line_1").value;
+ 				sessionStorage.setItem('Address line 1',temp);
+ 				temp=document.getElementById("address_line_2").value;
+ 				sessionStorage.setItem('Address line 2',temp);
+ 				temp=document.getElementById("city").value;
+ 				sessionStorage.setItem('City',temp);
+ 				/*alert("Value inside textbox is: "+sessionStorage.getItem('First name'));*/
+ 				if(sessionStorage.getItem('Sname')!='')
+				view();
+				else
+				content();
+			}
+			function view()
+			{
+				var letter=document.getElementById('letter');
+				letter.innerHTML='<br><h1>';
+				if(sessionStorage.getItem('First name')!='')
+				{
+					//First name
+					var paragraph=document.createElement('p');
+					/*paragraph.style.marginLeft="10vw";
+					paragraph.style.textAlign="justify";*/
+					var node = document.createTextNode(sessionStorage.getItem('First name'));
+					paragraph.appendChild(node);
+					letter.appendChild(paragraph);
+					//Last name
+					if(sessionStorage.getItem('Last name')!='')
+					{
+							var paragraph=document.createElement('p');
+							var node = document.createTextNode(sessionStorage.getItem('Last name'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}	
+					//Company
+					if(sessionStorage.getItem('Company')!='')
+					{
+							var paragraph=document.createElement('p');
+							var node = document.createTextNode(sessionStorage.getItem('Company'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}	
+					//Address lines
+					if(sessionStorage.getItem('Address line 1')!='')
+					{
+							var paragraph=document.createElement('p');
+							var node = document.createTextNode(sessionStorage.getItem('Address line 1'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}	
+					if(sessionStorage.getItem('Address line 2')!='')
+					{
+							var paragraph=document.createElement('p');
+							var node = document.createTextNode(sessionStorage.getItem('Address line 2'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					//City
+					if(sessionStorage.getItem('City')!='')
+					{
+							var paragraph=document.createElement('p');
+							var node = document.createTextNode(sessionStorage.getItem('City'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					letter.innerHTML +='<br>';
+					//Salutation
+					if(sessionStorage.getItem('Salutation')!='')
+					{
+							var paragraph=document.createElement('p');
+							paragraph.style.marginRight="5vw";
+							var node = document.createTextNode(sessionStorage.getItem('Salutation'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					//Content
+					if(sessionStorage.getItem('Content')!='')
+					{
+							var paragraph=document.createElement('p');
+							paragraph.style.marginRight="5vw";
+							var node = document.createTextNode(sessionStorage.getItem('Content'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					//Content2
+					if(sessionStorage.getItem('Content2')!='')
+					{
+							var paragraph=document.createElement('p');
+							paragraph.style.marginRight="5vw";
+							var node = document.createTextNode(sessionStorage.getItem('Content2'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					//Content3
+					if(sessionStorage.getItem('Content3')!='')
+					{
+							var paragraph=document.createElement('p');
+							paragraph.style.marginRight="5vw";
+							var node = document.createTextNode(sessionStorage.getItem('Content3'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					letter.innerHTML +='<br>';
+					//Complimentary close
+					if(sessionStorage.getItem('Close')!='')
+					{
+							var paragraph=document.createElement('p');
+							paragraph.style.marginRight="5vw";
+							var node = document.createTextNode(sessionStorage.getItem('Close'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					//Sender's name
+					if(sessionStorage.getItem('Sname')!='')
+					{
+							var paragraph=document.createElement('p');
+							paragraph.style.marginRight="5vw";
+							var node = document.createTextNode(sessionStorage.getItem('Sname'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					//Designation lines
+					if(sessionStorage.getItem('Dline1')!='')
+					{
+							var paragraph=document.createElement('p');
+							paragraph.style.marginRight="5vw";
+							var node = document.createTextNode(sessionStorage.getItem('Dline1'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					if(sessionStorage.getItem('Dline2')!='')
+					{
+							var paragraph=document.createElement('p');
+							paragraph.style.marginRight="5vw";
+							var node = document.createTextNode(sessionStorage.getItem('Dline2'));
+							paragraph.appendChild(node);
+							letter.appendChild(paragraph);
+					}
+					letter.innerHTML +='</h1>';
+				}
+				else
+				{
+					letter.innerHTML = '<br><br><br>Kindly add a recepient</h1>';
+				}
+			}
+			function content()
+			{
+				var letter=document.getElementById('letter');
+				letter.innerHTML='<br><h1>Content</h1><br>Salutation: <input type="text" id="salutation" placeholder="Salutation" size="50vw"><br><br>Paragraph 1:<br><textarea rows="10" cols="30" class="content" id="content1" placeholder="Click here to add your first paragraph">'+sessionStorage.getItem("Content")+'</textarea><br>Paragraph 2:<br><textarea rows="10" cols="30" class="content" id="content2" placeholder="Click here to add your second paragraph">'+sessionStorage.getItem("Content2")+'</textarea><br>Paragraph 3:<br><textarea rows="10" cols="30" class="content" id="content3" placeholder="Click here to add your third paragraph">'+sessionStorage.getItem("Content3")+'</textarea><br><br>Close: <input type="text" id="close" placeholder="Sincerely," size="50vw"><br><br>Sender'+"'"+'s name: <input type="text" id="sname" placeholder="Your name" size="50vw"><br><br>Designation line 1: <input type="text" id="dline1" placeholder="First line of designation" size="50vw"><br><br>Designation line 2: <input type="text" id="dline2" placeholder="Second line of designation" size="50vw"><br><br><br><h2>Update Content: <input type="button" value="Update" class="new" onclick="update()"></h2>';
+			}
+			function update()
+			{
+				sessionStorage.setItem('Content',document.getElementById('content1').value);
+				sessionStorage.setItem('Content2',document.getElementById('content2').value);
+				sessionStorage.setItem('Content3',document.getElementById('content3').value);
+				sessionStorage.setItem('Sname',document.getElementById('sname').value);
+				sessionStorage.setItem('Dline1',document.getElementById('dline1').value);
+				sessionStorage.setItem('Dline2',document.getElementById('dline2').value);
+				sessionStorage.setItem('Salutation',document.getElementById('salutation').value);
+				sessionStorage.setItem('Close',document.getElementById('close').value);
+				view();
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+			<img id="logo" src="images/logo.png" title="Our Logo" width="75" alt="Logo"/>
+			<img id="header" src="images/header.PNG" width="53%" title="&quot;Welcome to The Merge&quot;" alt="The Merge"/>
+		</header>
+		<section>
+            <div><h1>Online Letter Merger</h1>
+                <h1>You can type your letters here the way you want!
+                    <br>
+                    Create stunning letterheads without any design experience for your business
+                     correspondence with "The Merge" online Letterhead Creator!
+                </h1></div>
+                
+			<div>
+                
+			<br>
+			<button type="button" onclick="content()">Edit content</button>
+            <button type="button" onclick="New()">Add recepient</button>
+			<button type="button" onclick="view()">View letter</button>
+			
+			<br><br><br>
+			</div>
+			<article id="letter">
+			</article>
+	</section>
+	</body>
+</html>
